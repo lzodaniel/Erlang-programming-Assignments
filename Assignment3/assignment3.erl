@@ -21,25 +21,25 @@
 sum([])     -> 0;
 sum([X|Xs]) -> X + sum(Xs).
 
-sum_interval(N, M) when N > M -> 0;
-sum_interval(N, M) -> N + sum_interval(N+1, M). 
+sum_interval(N, M) when N > M -> 0;%when N > M , return 0
+sum_interval(N, M) -> N + sum_interval(N+1, M). %increment A by one each time , and accumulate the result by using 'A+'
 
-interval(N, M)when  N > M-> [];
-interval(N, M) -> [N] ++ interval(N+1, M).
+interval(N, M)when  N > M-> [];%When N > M, return empty list
+interval(N, M) -> [N] ++ interval(N+1, M).% Increment N by one each time
 
-sum_interval2(N, M) -> sum(interval(N,M)).
+sum_interval2(N, M) -> sum(interval(N,M)).%calculating the sum by utilizing sum() and interval()
 
-adj_duplicates([]) -> [];
-adj_duplicates([X,X|Xs]) -> [X]++ adj_duplicates([X|Xs]);
-adj_duplicates([_|Xs]) -> adj_duplicates(Xs).
+adj_duplicates([]) -> [];%when the input list empty, return empty list
+adj_duplicates([X,X|Xs]) -> [X]++ adj_duplicates([X|Xs]);%Take the head of the list and merge with the head of the tail , do so recursively 
+adj_duplicates([_|Xs]) -> adj_duplicates(Xs).% until there i only one element left in the input list, retunr the element 
 
 
-even_print([]) -> ok;
-even_print([H|T]) when H rem 2 ==0 -> io:format("~p~n", [H]), even_print(T);
-even_print([_|T]) -> even_print(T).
+even_print([]) -> ok;%when there is nothing ..return empty list
+even_print([H|T]) when H rem 2 ==0 -> io:format("~p~n", [H]), even_print(T);%when the head is even number, print that number and continue to go through the rest of the list recusively 
+even_print([_|T]) -> even_print(T). %when there is only one elelment left, return that number
 
-even_odd(N) when N rem 2 == 0 -> even;
-even_odd(_) -> odd.
+even_odd(N) when N rem 2 == 0 -> even; % when the reminder of result of N divide by 2 is 0, then this number is even number, thus retunr atom 'even' 
+even_odd(_) -> odd.%Otherwise, return atom 'odd'
 
 even_print2(L) -> [io:format("~p~n", [X]) || X <- L, even_odd(X) == even], ok.
 
