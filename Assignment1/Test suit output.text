@@ -1,0 +1,33 @@
+Last login: Sun Sep  4 23:45:28 on ttys001
+LiangZhanousMBP:~ LzoDaniel$ cd Desktop/Distributed\ Fault-tolerant\ programming\ /Assignment1/
+LiangZhanousMBP:Assignment1 LzoDaniel$ erl
+Erlang/OTP 19 [erts-8.0.2] [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
+
+Eshell V8.0.2  (abort with ^G)
+1> eqc:start().
+Starting Quviq QuickCheck Mini version 2.01.0
+   (compiled at {{2015,9,2},{9,3,13}})
+ok
+2> c(assignment1).
+{ok,assignment1}
+3> eqc:module(assignment1_eqc).
+prop_even_odd: ....................................................................................................
+OK, passed 100 tests
+prop_range_overlap: ....................................................................................................
+OK, passed 100 tests
+prop_rect_overlap: ....................................................................................................
+OK, passed 100 tests
+prop_get_amp: ....................................................................................................
+OK, passed 100 tests
+prop_f2c: ....................................................................................................
+OK, passed 100 tests
+prop_c2f: ....................................................................................................
+OK, passed 100 tests
+prop_convert: ....................................................................................................
+OK, passed 100 tests
+prop_measure: ....................................................................................................
+OK, passed 100 tests
+prop_any_2_equal: ....................................................................................................
+OK, passed 100 tests
+[]
+4> 
