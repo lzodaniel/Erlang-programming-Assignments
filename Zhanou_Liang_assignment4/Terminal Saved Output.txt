@@ -1,0 +1,40 @@
+Last login: Thu Sep 29 18:34:58 on ttys001
+dhcp-231-156:~ LzoDaniel$ cd Desktop/Distributed\ Fault-tolerant\ programming\ /Assignment4
+dhcp-231-156:Assignment4 LzoDaniel$ ERL
+Erlang/OTP 19 [erts-8.0.2] [source] [64-bit] [smp:4:4] [async-threads:10] [hipe] [kernel-poll:false] [dtrace]
+
+Eshell V8.0.2  (abort with ^G)
+1> eqc:module(assignment4_eqc).
+prop_counter_start: 
+assignment4_counter:start() -> <0.62.0>
+assignment4_counter:start() -> <0.64.0>
+assignment4_counter:stop(pid1) -> ok
+.
+OK, passed 1 tests
+prop_counter_counter: ....................................................................................................
+OK, passed 100 tests
+prop_store_start: 
+dist_erlang:start() -> {ok,<0.3275.0>}
+dist_erlang:start() -> {ok,<0.3275.0>}
+.
+OK, passed 1 tests
+prop_store_stop: 
+dist_erlang:start() -> {ok,<0.3280.0>}
+dist_erlang:stop() -> stopped
+dist_erlang:start() -> {ok,<0.3283.0>}
+dist_erlang:stop() -> stopped
+dist_erlang:stop() -> already_stopped
+.
+OK, passed 1 tests
+prop_store_store: ....................................................................................................
+OK, passed 100 tests
+prop_dist_task_triv: .
+OK, passed 1 tests
+prop_dist_task: ....................................................................................................
+OK, passed 100 tests
+prop_dist_task_eff: ...............
+OK, passed 15 tests
+prop_pmap: ....................................................................................................
+OK, passed 100 tests
+[]
+2> 
